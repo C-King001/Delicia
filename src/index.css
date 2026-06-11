@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Felicia Foods — Light Mode (Default) */
+    --background: 36 45% 97%;
+    --foreground: 28 35% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 28 35% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 28 35% 8%;
+
+    --primary: 3 68% 32%;
+    --primary-foreground: 36 55% 95%;
+
+    --secondary: 36 40% 93%;
+    --secondary-foreground: 28 35% 15%;
+
+    --muted: 35 30% 90%;
+    --muted-foreground: 28 20% 45%;
+
+    --accent: 43 78% 45%;
+    --accent-foreground: 28 35% 8%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 35 25% 85%;
+    --input: 35 25% 88%;
+    --ring: 3 68% 32%;
+
+    --radius: 0.75rem;
+
+    /* Felicia Foods Semantic Tokens */
+    --ff-charcoal: 28 20% 8%;
+    --ff-charcoal-mid: 28 15% 14%;
+    --ff-spice: 3 68% 32%;
+    --ff-spice-bright: 3 75% 42%;
+    --ff-terracotta: 16 56% 47%;
+    --ff-gold: 43 78% 45%;
+    --ff-gold-light: 43 90% 62%;
+    --ff-cream: 36 55% 92%;
+    --ff-smoke: 36 35% 97%;
+    --ff-amber: 25 85% 55%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 28 35% 8%;
+    --sidebar-primary: 3 68% 32%;
+    --sidebar-primary-foreground: 36 55% 95%;
+    --sidebar-accent: 36 40% 93%;
+    --sidebar-accent-foreground: 28 35% 15%;
+    --sidebar-border: 35 25% 85%;
+    --sidebar-ring: 3 68% 32%;
+  }
+
+  .dark-section {
+    --background: 28 20% 8%;
+    --foreground: 36 55% 92%;
+    --card: 28 15% 12%;
+    --card-foreground: 36 55% 92%;
+    --border: 28 15% 20%;
+    --muted-foreground: 35 15% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .font-display {
+    font-family: 'DM Serif Display', serif;
+  }
+
+  .font-heading {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .font-body {
+    font-family: 'DM Sans', sans-serif;
+  }
+}
+
+/* ── Felicia Foods Utility Classes ─────────────────────────────────── */
+@layer utilities {
+  /* Color helpers */
+  .text-spice { color: hsl(var(--ff-spice)); }
+  .text-terracotta { color: hsl(var(--ff-terracotta)); }
+  .text-gold { color: hsl(var(--ff-gold)); }
+  .text-cream { color: hsl(var(--ff-cream)); }
+  .bg-ff-charcoal { background-color: hsl(var(--ff-charcoal)); }
+  .bg-ff-charcoal-mid { background-color: hsl(var(--ff-charcoal-mid)); }
+  .bg-ff-spice { background-color: hsl(var(--ff-spice)); }
+  .bg-ff-terracotta { background-color: hsl(var(--ff-terracotta)); }
+  .bg-ff-gold { background-color: hsl(var(--ff-gold)); }
+  .bg-ff-cream { background-color: hsl(var(--ff-cream)); }
+  .bg-ff-smoke { background-color: hsl(var(--ff-smoke)); }
+
+  /* Gradient text */
+  .text-gradient-spice {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--ff-spice-bright)), hsl(var(--ff-gold)));
+  }
+
+  /* Section backgrounds */
+  .section-dark {
+    background-color: hsl(var(--ff-charcoal));
+    color: hsl(var(--ff-cream));
+  }
+  .section-mid {
+    background-color: hsl(var(--ff-charcoal-mid));
+    color: hsl(var(--ff-cream));
+  }
+  .section-cream {
+    background-color: hsl(var(--ff-cream));
+  }
+  .section-smoke {
+    background-color: hsl(var(--ff-smoke));
+  }
+
+  /* Adire-inspired geometric pattern overlay */
+  .pattern-adire {
+    background-image:
+      url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 2 L38 20 L20 38 L2 20 Z' fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='0.8'/%3E%3Cpath d='M20 10 L30 20 L20 30 L10 20 Z' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='0.6'/%3E%3C/svg%3E");
+    background-size: 40px 40px;
+  }
+
+  .pattern-adire-warm {
+    background-image:
+      url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 2 L38 20 L20 38 L2 20 Z' fill='none' stroke='rgba(180,90,40,0.07)' stroke-width='0.8'/%3E%3Cpath d='M20 10 L30 20 L20 30 L10 20 Z' fill='none' stroke='rgba(180,90,40,0.05)' stroke-width='0.6'/%3E%3C/svg%3E");
+    background-size: 40px 40px;
+  }
+
+  /* Card styles */
+  .ff-card {
+    @apply rounded-2xl bg-white border border-border shadow-sm hover:shadow-md transition-shadow duration-300;
+  }
+
+  .ff-card-dark {
+    @apply rounded-2xl border transition-all duration-300;
+    background-color: hsl(var(--ff-charcoal-mid));
+    border-color: hsl(28 15% 20%);
+  }
+
+  /* Button variants */
+  .btn-spice {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-all duration-200;
+    background-color: hsl(var(--ff-spice));
+    color: hsl(var(--ff-cream));
+  }
+  .btn-spice:hover {
+    background-color: hsl(var(--ff-spice-bright));
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px -4px hsl(var(--ff-spice) / 0.4);
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-all duration-200;
+    background-color: hsl(var(--ff-gold));
+    color: hsl(var(--ff-charcoal));
+  }
+  .btn-gold:hover {
+    background-color: hsl(var(--ff-gold-light));
+    transform: translateY(-1px);
+  }
+
+  .btn-outline-cream {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-all duration-200;
+    border: 1.5px solid hsl(var(--ff-cream) / 0.4);
+    color: hsl(var(--ff-cream));
+    background: transparent;
+  }
+  .btn-outline-cream:hover {
+    background-color: hsl(var(--ff-cream) / 0.1);
+    border-color: hsl(var(--ff-cream) / 0.7);
+  }
+
+  /* Tag / badge */
+  .ff-badge {
+    @apply inline-flex items-center rounded-full px-3 py-0.5 text-xs font-medium;
+  }
+
+  /* Divider */
+  .ff-divider {
+    @apply h-px w-full;
+    background: linear-gradient(90deg, transparent, hsl(var(--border)), transparent);
+  }
+}
+
+/* ── Animations ──────────────────────────────────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 35s linear infinite;
+  width: max-content;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg,
+    hsl(var(--muted)) 0%,
+    hsl(var(--border)) 50%,
+    hsl(var(--muted)) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+.animate-float { animation: float 3s ease-in-out infinite; }
+
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal-up { animation: reveal-up 0.6s ease-out forwards; }
+
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Smooth scroll */
+html { scroll-behavior: smooth; }
